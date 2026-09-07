@@ -55,8 +55,7 @@ The idea behind splitting it this way: if tomorrow you need to add NetBanking as
 You just need a C++ compiler that supports C++17 (g++ works fine).
 
 ```bash
-g++ -std=c++17 -o movie_booking main.cpp
-./movie_booking
+g++ main.cpp
 ```
 
 No external libraries, no build system needed — it's all standard C++.
