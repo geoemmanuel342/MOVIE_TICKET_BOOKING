@@ -100,10 +100,4 @@ Choose: 2
 - Cancelling a confirmed booking → its seats go back to available immediately
 - Garbage input at any menu (letters instead of numbers, out-of-range choices) → a clear message instead of a crash
 
-## What's deliberately left out
 
-This is scoped tightly to the 8 required features — no database, no user accounts, no multi-cinema support, no seat locking for concurrent users. It's a single-process console demo built to show clean OOP design, not a production booking engine.
-
-## Course context
-
-Built for **TCS-504 (System Design)**, B.Tech CSE Semester 5, Assignment 1.
