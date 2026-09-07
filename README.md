@@ -92,6 +92,27 @@ Choose: 2
   Amount     : Rs.400   Status: CONFIRMED
   =========================================
 ```
+## SOLID Principles Applied
+
+| Principle | Where |
+|---|---|
+| **Single Responsibility** | `Booking` only holds state; `TicketPrinter` only prints; `PriceCalculator` only handles pricing. |
+| **Open/Closed** | A new payment method (e.g., `NetBanking`) can be added by creating a new `Payment` subclass without modifying existing classes. |
+| **Liskov Substitution** | Every `Payment` subclass works through the common `pay(amount)` interface. |
+| **Interface Segregation** | `Payment` only exposes `pay(amount)`, so types are not forced to implement unnecessary methods such as `refund()`. |
+| **Dependency Inversion** | `BookingService` depends on the abstract `Payment` type; `Main` decides which concrete payment class to create. |
+
+### Deliberately Not Implemented
+
+Refund logic is intentionally out of scope. Cancelling a booking frees the seats as required by the specification, but the system does not track or process money returned.
+
+## Edge Cases Handled
+
+- **Already-booked seat** → Booking is rejected; nothing changes.
+- **Failed payment** → Booking is not confirmed and seats are released.
+- **Cancelling a booking** → Seats become available again; cancelling twice is rejected.
+- **Invalid seat number** → Clear error message is displayed.
+- **Invalid menu choice/input** → Clear error message is displayed without crashing.
 
 ## Edge cases it actually handles
 
